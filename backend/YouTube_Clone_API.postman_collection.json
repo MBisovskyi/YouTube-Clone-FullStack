@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "f072b256-db73-4948-b477-2162bdfce4fe",
+		"name": "YouTube_Clone_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21932023"
+	},
+	"item": [
+		{
+			"name": "Get_All_Comments",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
