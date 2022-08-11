@@ -1,4 +1,3 @@
-from xml.etree.ElementTree import Comment
 from django.db import models
 from authentication.models import User
 from comments.models import Comment
