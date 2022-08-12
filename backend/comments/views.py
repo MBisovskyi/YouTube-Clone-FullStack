@@ -35,5 +35,6 @@ def comment_by_id(request, comment_id):
     if request.method == 'PUT':
         serializer = CommentSerializer(comment, data = request.data)
         serializer.is_valid(raise_exception = True)
-        serializer.save()
-        return Response(serializer.data)
+        if serializer.save():
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

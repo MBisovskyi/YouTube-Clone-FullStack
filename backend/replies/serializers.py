@@ -1,9 +1,12 @@
 from rest_framework import serializers
-from .models import Comment
-from .models import User
+from .models import Reply
 
 
-class CommentSerializer(serializers.ModelSerializer):
+class ReplySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comment
+        model = Reply
         fields = ['id', 'text', 'user', 'comment', 'comment_id']
+        depth = 1
+
+    comment_id = serializers.IntegerField(write_only=True)
+    
