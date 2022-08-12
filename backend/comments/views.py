@@ -27,3 +27,13 @@ def user_comments(request):
         comments = Comment.objects.filter(user_id=request.user.id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
+    
+@api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
+def comment_by_id(request, comment_id):
+    comment = Comment.objects.get(pk = comment_id)
+    if request.method == 'PUT':
+        serializer = CommentSerializer(comment, data = request.data)
+        serializer.is_valid(raise_exception = True)
+        serializer.save()
+        return Response(serializer.data)
