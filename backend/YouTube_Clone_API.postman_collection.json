@@ -302,6 +302,87 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "YouTube API",
+			"item": [
+				{
+					"name": "Search_Video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?q=devcodecamp&key=AIzaSyBZj6DOul-OAlEnTEeaL-ivV1zt5o2Ta90&part=snippet",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "devcodecamp"
+								},
+								{
+									"key": "key",
+									"value": "AIzaSyBZj6DOul-OAlEnTEeaL-ivV1zt5o2Ta90"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Related_videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?relatedToVideoId=fZcYMQG3FBI&type=video&key=AIzaSyBZj6DOul-OAlEnTEeaL-ivV1zt5o2Ta90&part=snippet",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "relatedToVideoId",
+									"value": "fZcYMQG3FBI"
+								},
+								{
+									"key": "type",
+									"value": "video"
+								},
+								{
+									"key": "key",
+									"value": "AIzaSyBZj6DOul-OAlEnTEeaL-ivV1zt5o2Ta90"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
