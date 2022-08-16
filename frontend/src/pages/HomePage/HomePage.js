@@ -33,15 +33,12 @@ const HomePage = () => {
           return (
             <div key={vid.id.videoId}>
               <div>{vid.snippet.title}</div>
-              {/* <iframe
-                id="ytplayer"
-                type="text/html"
-                width="640"
-                height="360"
-                src={`https://www.youtube.com/embed/${vid.id.videoId}`}
-                frameBorder="0"
-              ></iframe> */}
-              <Link to="/VideoPage">
+              <Link
+                to={{
+                  pathname: `/video`,
+                  state: { id: vid.id.videoId },
+                }}
+              >
                 <img src={vid.snippet.thumbnails.high.url}></img>
               </Link>
             </div>
