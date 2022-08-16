@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -18,6 +19,7 @@ const HomePage = () => {
         &part=snippet`
       );
       setVideos(response.data.items);
+      console.log(response.data.items);
     }
     getVideos();
   }, [token]);
@@ -31,14 +33,17 @@ const HomePage = () => {
           return (
             <div key={vid.id.videoId}>
               <div>{vid.snippet.title}</div>
-              <iframe
+              {/* <iframe
                 id="ytplayer"
                 type="text/html"
                 width="640"
                 height="360"
                 src={`https://www.youtube.com/embed/${vid.id.videoId}`}
                 frameBorder="0"
-              ></iframe>
+              ></iframe> */}
+              <Link to="/VideoPage">
+                <img src={vid.snippet.thumbnails.high.url}></img>
+              </Link>
             </div>
           );
         })}
