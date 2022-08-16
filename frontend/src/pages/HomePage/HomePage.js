@@ -9,34 +9,32 @@ const HomePage = () => {
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
-        setCars(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
-    };
-    fetchCars();
-  }, [token]);
-  return (
-    <div className="container">
-      <h1>Home Page for {user.username}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+    async function getVideos () {
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=manunited&key=AIzaSyBZj6DOul-OAlEnTEeaL-ivV1zt5o2Ta90&part=snippet`);
+      setVideos(response.data.items)
+    }; getVideos()}, 
+  [token]);
+return (
+  <div>
+    <p>Welcome {user.username}!</p> 
+    <div>
+      {videos.map(function(vid){
+        return (
+          <div>
+            <div key={vid.id.videoId}>{vid.snippet.title}</div>
+            <iframe id="ytplayer" type="text/html" width="640" height="360"
+            src={`https://www.youtube.com/embed/${vid.id.videoId}`}
+
+            frameborder="0"></iframe>
+          </div>
+        );
+      })}
     </div>
-  );
-};
+  </div>
+)
+}
 
 export default HomePage;
