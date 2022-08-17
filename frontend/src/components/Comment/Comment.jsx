@@ -3,7 +3,10 @@ import CommentList from "./CommentList/CommentList";
 
 const Comment = (props) => {
     return ( 
-        <div></div>
+        <div>
+            <CommentForm username={props.username}/>
+            <CommentList />
+        </div>
      );
 }
  
