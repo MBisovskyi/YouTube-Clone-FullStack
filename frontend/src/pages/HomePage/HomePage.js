@@ -15,9 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getVideos() {
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=devcodecamp&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
-
-        &part=snippet`
+        `https://www.googleapis.com/youtube/v3/search?q=devcodecamp&key=AIzaSyDJj-5ZKcpi_mplrkg6fDroupzGjCVOHZc&part=snippet`
       );
       setVideos(response.data.items);
       console.log(response.data.items);
