@@ -19,6 +19,7 @@ const CommentForm = (props) => {
         Authorization: "Bearer " + token,
       },
     });
+    setText('')
   }
 
   return (
