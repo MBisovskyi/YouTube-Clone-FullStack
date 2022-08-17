@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-
-
 const CommentForm = (props) => {
     const { videoId } = useParams();
     const [text, setText] = useState('');
@@ -20,17 +18,15 @@ const CommentForm = (props) => {
 
     return ( 
         <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <h3>Name: {props.username}</h3>
-                </div>
-                <div>
-                    <label>Comment: <br/>
-                        <textarea rows="5"></textarea>
-                    </label>
-                </div>
-                <button type='submit'>Submit</button>
-            </form>
+            <div>
+                <h3>Name: {props.username}</h3>
+            </div>
+            <div>
+                <label>Comment: <br/>
+                    <textarea rows="5" value={text} onChange={(event) => setText(event.target.value)}></textarea>
+                </label>
+            </div>
+            <button type='submit' onClick={handleSubmit}>Submit</button>
         </div>
      );
 }
