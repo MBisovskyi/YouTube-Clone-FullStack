@@ -6,7 +6,7 @@ const SearchBar = (props) => {
 
   async function handleSubmit() {
     let response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?q=${entry}&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk
+      `https://www.googleapis.com/youtube/v3/search?q=${entry}&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
       &part=snippet`
     );
     props.setVideos(response.data.items);

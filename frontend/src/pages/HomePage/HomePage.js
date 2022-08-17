@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getVideos() {
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=reactapp&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
+        `https://www.googleapis.com/youtube/v3/search?q=devcodecamp&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
 
         &part=snippet`
       );
@@ -31,14 +31,18 @@ const HomePage = () => {
       <p>Welcome {user.username}!</p>
       <div>
         {videos.map(function (vid, index) {
-          return (
-            <div key={index}>
-              <div>{vid.snippet.title}</div>
-              <Link to={`/video=${vid.id.videoId}`}>
-                <img src={vid.snippet.thumbnails.high.url}></img>
-              </Link>
-            </div>
-          );
+          {
+            if (vid.snippet && vid.id.videoId) {
+              return (
+                <div key={index}>
+                  <div>{vid.snippet.title}</div>
+                  <Link to={`/video=${vid.id.videoId}`}>
+                    <img src={vid.snippet.thumbnails.high.url}></img>
+                  </Link>
+                </div>
+              );
+            }
+          }
         })}
       </div>
     </div>
