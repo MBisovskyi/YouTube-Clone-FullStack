@@ -8,16 +8,21 @@ const RelatedVideos = (props) => {
   const [relatedVideos, setRelatedVideos] = useState([]);
 
   useEffect(() => {
-    async function getRelatedVideos() {
-      let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
-        &part=snippet`
-      );
-      console.log(response.data.items);
-      setRelatedVideos(response.data.items);
-    }
-    getRelatedVideos();
+    getRelatedVideos(videoId);
   }, []);
+
+  async function getRelatedVideos(videoId) {
+    let response = await axios.get(
+      `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k
+      &part=snippet`
+    );
+    console.log(response.data.items);
+    setRelatedVideos(response.data.items);
+  }
+
+  async function clickHandle() {
+    getRelatedVideos(videoId);
+  }
 
   return (
     <div>
@@ -27,7 +32,10 @@ const RelatedVideos = (props) => {
             if (vid.snippet && vid.id.videoId) {
               return (
                 <div key={index}>
-                  <strong>{vid.snippet.title}</strong>
+                  <p>{vid.snippet.title}</p>
+                  <Link onClick={clickHandle} to={`/video=${vid.id.videoId}`}>
+                    <img src={vid.snippet.thumbnails.medium.url}></img>
+                  </Link>
                 </div>
               );
             }
