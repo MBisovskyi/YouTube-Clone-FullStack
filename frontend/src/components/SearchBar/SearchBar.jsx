@@ -9,7 +9,7 @@ const SearchBar = (props) => {
       `https://www.googleapis.com/youtube/v3/search?q=${entry}&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk
       &part=snippet`
     );
-    props.searchedVideos(response.data.items);
+    props.setVideos(response.data.items);
     setEntry("");
   }
 
