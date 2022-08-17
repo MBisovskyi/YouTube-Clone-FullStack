@@ -32,7 +32,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/video=:videoId/" element={<VideoPage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
