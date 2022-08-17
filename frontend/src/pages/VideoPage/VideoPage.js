@@ -1,34 +1,37 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const VideoPage = (props) => {
-  const [video, setVideo] = useState();
+  const { videoId } = useParams();
+  const [video, setVideo] = useState([]);
 
   useEffect(() => {
-    displayVideo();
+    // getSingleVideo();
   }, []);
 
-  async function displayVideo() {
-    debugger;
-    let response = await axios.get(
-      `https://www.youtube.com/embed/${props.state.id}`
-    );
-    setVideo(response.data.items);
-  }
+  // async function getSingleVideo() {
+  //   debugger;
+  //   let response = await axios.get(
+  //     `https://www.googleapis.com/youtube/v3/videos?id=${videoId}`
+  //   );
+  //   setVideo(response.data);
+  //   console.log(response.data);
+  // }
+
   return (
     <div>
+      <SearchBar />
       <iframe
         id="ytplayer"
         type="text/html"
         width="640"
         height="360"
-        src={`https://www.youtube.com/embed/${video.id.videoId}`}
+        src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
       ></iframe>
+      {/* <p>{video.snippet.description}</p> */}
     </div>
   );
 };

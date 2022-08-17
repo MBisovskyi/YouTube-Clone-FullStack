@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getVideos() {
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=manunited&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk
+        `https://www.googleapis.com/youtube/v3/search?q=reactapp&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk
         &part=snippet`
       );
       setVideos(response.data.items);
@@ -29,16 +29,11 @@ const HomePage = () => {
       <SearchBar searchedVideos={setVideos} />
       <p>Welcome {user.username}!</p>
       <div>
-        {videos.map(function (vid) {
+        {videos.map(function (vid, index) {
           return (
-            <div key={vid.id.videoId}>
+            <div key={index}>
               <div>{vid.snippet.title}</div>
-              <Link
-                to={{
-                  pathname: `/video`,
-                  state: { id: vid.id.videoId },
-                }}
-              >
+              <Link to={`/video=${vid.id.videoId}`}>
                 <img src={vid.snippet.thumbnails.high.url}></img>
               </Link>
             </div>
