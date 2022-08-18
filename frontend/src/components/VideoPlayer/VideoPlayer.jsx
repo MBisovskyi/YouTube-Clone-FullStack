@@ -24,14 +24,14 @@ const VideoPlayer = (props) => {
       <iframe
         id="ytplayer"
         type="text/html"
-        width="1080"
-        height="660"
+        width="1240"
+        height="720"
         src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
       ></iframe>
       {videos.map(function (video, index) {
         return (
-          <div key={index} className='snippet'>
+          <div key={index} className="snippet">
             <p className="title">{video.snippet.title}</p>
             <p className="discription">{video.snippet.description}</p>
           </div>

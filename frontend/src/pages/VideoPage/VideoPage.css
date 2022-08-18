@@ -1,10 +1,11 @@
 .videopage {
   display: flex;
+  justify-content: space-around;
   width: 95%;
   margin: auto;
 }
 
 .videoplayer-container {
-  padding-right: 20rem;
-  width: 90%;
+  width: 70%;
+  padding-right: 2rem;
 }
