@@ -25,11 +25,12 @@ const HomePage = () => {
 
   return (
     <div>
-      <p className="welcome">
-        <h3>
+      <h3>
+        <p className="welcome">
           Welcome <span>{user.username}!</span>
-        </h3>
-      </p>
+        </p>
+      </h3>
+
       <SearchBar setVideos={setVideos} />
       <div className="vid-container">
         {videos.map(function (vid, index) {
