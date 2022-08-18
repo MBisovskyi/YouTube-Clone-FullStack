@@ -1,12 +1,19 @@
 form {
-    padding: 1rem;
-    border-bottom: 1px solid whitesmoke;
+  padding: 1rem;
+  border-bottom: 1px solid whitesmoke;
 }
 
 .commentform {
-    padding: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
-textarea {
-    margin: 1rem;
+.comment-textarea {
+  resize: none;
+  padding: 0.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.username {
+  margin-bottom: 1rem;
 }

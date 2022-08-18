@@ -1,4 +1,10 @@
 .videopage {
-    display: flex;
-    margin: 1rem;
+  display: flex;
+  width: 95%;
+  margin: auto;
+}
+
+.videoplayer-container {
+  padding-right: 20rem;
+  width: 90%;
 }
