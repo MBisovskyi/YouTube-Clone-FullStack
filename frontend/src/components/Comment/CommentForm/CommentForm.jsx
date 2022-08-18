@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import "./CommentForm.css";
 
 const CommentForm = (props) => {
   const [user, token] = useAuth();
@@ -19,13 +20,13 @@ const CommentForm = (props) => {
         Authorization: "Bearer " + token,
       },
     });
-    setText('')
+    setText("");
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3>Name: {props.username}</h3>
+        <h3>Name: {user.username}</h3>
       </div>
       <div>
         <label>

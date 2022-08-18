@@ -18,7 +18,6 @@ const HomePage = () => {
         `https://www.googleapis.com/youtube/v3/search?q=aerospace&key=AIzaSyDJj-5ZKcpi_mplrkg6fDroupzGjCVOHZc&part=snippet`
       );
       setVideos(response.data.items);
-      console.log(response.data.items);
     }
     getVideos();
   }, [token]);
