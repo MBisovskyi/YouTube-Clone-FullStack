@@ -26,7 +26,7 @@ const RelatedVideos = (props) => {
 
   return (
     <div>
-      <div>
+      <div className="relatedvideo-item">
         {relatedVideos.map(function (vid, index) {
           {
             if (vid.snippet && vid.id.videoId) {
