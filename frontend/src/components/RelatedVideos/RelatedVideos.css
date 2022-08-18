@@ -1,7 +1,21 @@
-.relatedvideo-item {
-  margin-bottom: 2rem;
-}
 
 .relatedvideo-item p {
-  margin: 2rem 0 1rem 0;
+  margin-bottom: 1rem;
+  /* width: 90%; */
+}
+
+.eachrelatedvid {
+  border-bottom: 1px solid rgb(158, 158, 158);
+  /* margin: 1rem 0 0 0; */
+  padding: 1rem;
+}
+
+.eachrelatedvid img:hover {
+  box-shadow: 6px 6px 12px black;
+  transform: scale(1.05);
+}
+
+.eachrelatedvid a {
+  color: whitesmoke;
+  text-decoration: none;
 }

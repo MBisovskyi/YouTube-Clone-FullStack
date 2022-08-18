@@ -31,9 +31,9 @@ const RelatedVideos = (props) => {
           {
             if (vid.snippet && vid.id.videoId) {
               return (
-                <div key={index}>
-                  <p>{vid.snippet.title}</p>
+                <div key={index} className='eachrelatedvid'>
                   <Link onClick={clickHandle} to={`/video=${vid.id.videoId}`}>
+                    <p className="title">{vid.snippet.title}</p>
                     <img src={vid.snippet.thumbnails.medium.url}></img>
                   </Link>
                 </div>
