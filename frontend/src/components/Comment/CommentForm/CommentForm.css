@@ -1,0 +1,12 @@
+form {
+    padding: 1rem;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.commentform {
+    padding: 1rem;
+}
+
+textarea {
+    margin: 1rem;
+}

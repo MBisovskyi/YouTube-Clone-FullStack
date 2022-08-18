@@ -26,12 +26,14 @@ const CommentForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3>Name: {user.username}</h3>
+        <h3 className="username">Name: {user.username}</h3>
       </div>
       <div>
-        <label>
+        <label className="commentform">
           Comment: <br />
-          <textarea
+          <textarea 
+            rows={8}
+            cols={128}
             type="text"
             value={text}
             onChange={(event) => setText(event.target.value)}

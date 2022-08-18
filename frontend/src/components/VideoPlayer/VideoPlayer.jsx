@@ -13,27 +13,27 @@ const VideoPlayer = (props) => {
 
   async function getSingleVideo() {
     let response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk`
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k`
     );
     setVideos(response.data.items);
     console.log(response.data.items);
   }
 
   return (
-    <div>
+    <div className="video">
       <iframe
         id="ytplayer"
         type="text/html"
-        width="1280"
-        height="720"
+        width="1080"
+        height="660"
         src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
       ></iframe>
       {videos.map(function (video, index) {
         return (
-          <div key={index}>
-            <strong>{video.snippet.title}</strong>
-            <p>{video.snippet.description}</p>
+          <div key={index} className='snippet'>
+            <p className="title">{video.snippet.title}</p>
+            <p className="discription">{video.snippet.description}</p>
           </div>
         );
       })}
