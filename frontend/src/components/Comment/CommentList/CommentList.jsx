@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./CommentList.css";
+import LikeDislike from "../LikeDislike/LikeDislike";
 
 const CommentList = (props) => {
   const { videoId } = useParams();
@@ -24,19 +25,21 @@ const CommentList = (props) => {
       <div className="commentlist">
         {comments.map(function (comment, index) {
           return (
-            <div key={index} className='eachcomment'>
-              <p>Userame: <span>{comment.user.username}</span></p>
+            <div key={index} className="eachcomment">
+              <p>
+                Userame: <span>{comment.user.username}</span>
+              </p>
               <div className="commenttext">
                 Comment:
                 <br />
                 <p>{comment.text}</p>
               </div>
+              <LikeDislike commentId={comment.id} />
             </div>
           );
         })}
       </div>
     </div>
-
   );
 };
 

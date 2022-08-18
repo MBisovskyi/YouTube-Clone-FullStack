@@ -4,6 +4,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from .models import Comment
 from .serializers import CommentSerializer
+from django.shortcuts import get_object_or_404
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
@@ -38,3 +39,23 @@ def comment_by_id(request, comment_id):
         if serializer.save():
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PATCH'])
+def add_like(request, comment_id):
+    comment = get_object_or_404(Comment, id = comment_id)
+    if request.method == 'PATCH':
+        comment.likes += 1
+        serializer = CommentSerializer(comment, data = request.data, partial = True)
+        serializer.is_valid(raise_exception = True)
+        serializer.save()
+        return Response(comment.likes, status = status.HTTP_202_ACCEPTED)
+
+@api_view(['PATCH'])
+def add_dislike(request, comment_id):
+    comment = get_object_or_404(Comment, id = comment_id)
+    if request.method == 'PATCH':
+        comment.dislikes += 1
+        serializer = CommentSerializer(comment, data = request.data, partial = True)
+        serializer.is_valid(raise_exception = True)
+        serializer.save()
+        return Response(comment.dislikes, status = status.HTTP_202_ACCEPTED)

@@ -16,7 +16,8 @@ const HomePage = () => {
   useEffect(() => {
     async function getVideos() {
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=aerospace&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk&part=snippet&maxResults=9`
+        `https://www.googleapis.com/youtube/v3/search?q=aerospace&key=AIzaSyDJj-5ZKcpi_mplrkg6fDroupzGjCVOHZc
+        &part=snippet&maxResults=9`
       );
       setVideos(response.data.items);
     }

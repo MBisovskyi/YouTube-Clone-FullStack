@@ -13,7 +13,8 @@ const VideoPlayer = (props) => {
 
   async function getSingleVideo() {
     let response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyAxjxWiZBA74SwI9dhRUEDPhMvbBmx1P5k`
+      `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyDJj-5ZKcpi_mplrkg6fDroupzGjCVOHZc
+      `
     );
     setVideos(response.data.items);
     console.log(response.data.items);
