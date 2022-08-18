@@ -7,23 +7,20 @@ const SearchBar = (props) => {
 
   async function handleSubmit() {
     let response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search?q=${entry}&key=AIzaSyDJj-5ZKcpi_mplrkg6fDroupzGjCVOHZc&part=snippet`
+      `https://www.googleapis.com/youtube/v3/search?q=${entry}&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk&part=snippet`
     );
     props.setVideos(response.data.items);
     setEntry("");
   }
 
   return (
-    <div>
-      <label>
-        Search Video
-        <input
+    <div className="searchbar-container">
+        <input className="searchbar"
           type="text"
           value={entry}
           onChange={(event) => setEntry(event.target.value)}
         />
-      </label>
-      <button onClick={handleSubmit}>Search</button>
+      <button className="searchbutton" onClick={handleSubmit}>Search</button>
     </div>
   );
 };

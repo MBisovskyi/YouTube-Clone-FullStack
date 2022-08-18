@@ -1,0 +1,21 @@
+.searchbar-container {
+    justify-content: center;
+    display: flex;
+    margin: auto;
+}
+
+.searchbar{
+    width: 42%;
+    padding: 1rem;
+}
+
+.searchbutton:hover {
+    background-color: darkolivegreen;
+    border-color: darkolivegreen;
+}
+
+.searchbutton {
+    border-color: darkolivegreen;
+    color: darkolivegreen;
+}
+

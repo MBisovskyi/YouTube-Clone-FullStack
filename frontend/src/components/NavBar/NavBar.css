@@ -9,7 +9,7 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: darkolivegreen;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -32,4 +32,12 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.logo {
+  color: whitesmoke;
+}
+
+.logo span {
+  color: rgb(201, 187, 187);
 }

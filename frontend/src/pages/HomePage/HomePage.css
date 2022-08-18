@@ -1,0 +1,28 @@
+.welcome {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.welcome h3 {
+    margin-left: 5px;
+}
+
+.singlevid {
+
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.vid-container {
+    width: 88%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    grid-auto-flow: column;
+}
+
+.vidtitle {
+    width: 76%;
+}
