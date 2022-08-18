@@ -26,7 +26,7 @@ const CommentForm = (props) => {
   return (
     <form className="commentform" onSubmit={handleSubmit}>
       <div>
-        <h3 className="username">Name: {user.username}</h3>
+        <p className="username">Username: <span>{user.username}</span></p>
       </div>
       <div>
         <label>

@@ -20,12 +20,13 @@ const CommentList = (props) => {
 
   return (
     <div>
-      <div>
+      <p className="commentslist">Comments List: </p>
+      <div className="commentlist">
         {comments.map(function (comment, index) {
           return (
-            <div key={index}>
-              <p>Name: {comment.user.username}</p>
-              <div>
+            <div key={index} className='eachcomment'>
+              <p>Userame: <span>{comment.user.username}</span></p>
+              <div className="commenttext">
                 Comment:
                 <br />
                 <p>{comment.text}</p>
@@ -35,6 +36,7 @@ const CommentList = (props) => {
         })}
       </div>
     </div>
+
   );
 };
 
