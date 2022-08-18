@@ -17,7 +17,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Navbar />
       <Routes>
         <Route
@@ -32,7 +32,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/video=:videoId/" element={<VideoPage />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

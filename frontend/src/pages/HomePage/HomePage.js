@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Link } from "react-router-dom";
-import './HomePage.css'
+import "./HomePage.css";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -16,7 +16,7 @@ const HomePage = () => {
   useEffect(() => {
     async function getVideos() {
       let response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search?q=aerospace&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk&part=snippet`
+        `https://www.googleapis.com/youtube/v3/search?q=aerospace&key=AIzaSyAry76oSZiXa8xlzDNvABmRxNFReBReodk&part=snippet&maxResults=9`
       );
       setVideos(response.data.items);
     }
@@ -25,7 +25,11 @@ const HomePage = () => {
 
   return (
     <div>
-      <p className="welcome">Welcome<h3>{user.username}</h3>!</p>
+      <p className="welcome">
+        <h3>
+          Welcome <span>{user.username}!</span>
+        </h3>
+      </p>
       <SearchBar setVideos={setVideos} />
       <div className="vid-container">
         {videos.map(function (vid, index) {
@@ -33,8 +37,8 @@ const HomePage = () => {
             if (vid.snippet && vid.id.videoId) {
               return (
                 <div className="singlevid" key={index}>
-                  <div className="vidtitle">{vid.snippet.title}</div>
                   <Link to={`/video=${vid.id.videoId}`}>
+                    <div className="vidtitle">{vid.snippet.title}</div>
                     <img src={vid.snippet.thumbnails.high.url}></img>
                   </Link>
                 </div>

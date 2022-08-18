@@ -33,6 +33,11 @@ button:hover {
   background-color: steelblue;
 }
 
+.app-container {
+  background-color: rgb(60, 59, 59);
+  color: white;
+}
+
 .container {
   margin: 0 auto;
   max-width: 600px;
