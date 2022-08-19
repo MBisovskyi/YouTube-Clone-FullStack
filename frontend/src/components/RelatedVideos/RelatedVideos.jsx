@@ -25,6 +25,13 @@ const RelatedVideos = (props) => {
     getRelatedVideos(videoId);
   }
 
+  async function getVideoComments(videoId) {
+    let response = await axios.get(
+      `http://127.0.0.1:8000/api/comments/all/${videoId}/`
+    );
+    props.setComments(response.data);
+  }
+
   return (
     <div>
       <div className="relatedvideo-item">
@@ -33,7 +40,14 @@ const RelatedVideos = (props) => {
             if (vid.snippet && vid.id.videoId) {
               return (
                 <div key={index} className="eachrelatedvid">
-                  <Link onClick={clickHandle} to={`/video=${vid.id.videoId}`}>
+                  <Link
+                    onClick={[
+                      clickHandle,
+                      props.setVideoId(vid.id.videoId),
+                      getVideoComments,
+                    ]}
+                    to={`/video=${vid.id.videoId}`}
+                  >
                     <p className="title">{vid.snippet.title}</p>
                     <img src={vid.snippet.thumbnails.medium.url}></img>
                   </Link>
