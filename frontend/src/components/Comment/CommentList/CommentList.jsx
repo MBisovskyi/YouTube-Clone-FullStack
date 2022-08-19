@@ -30,12 +30,16 @@ const CommentList = (props) => {
               <p>
                 Userame: <span>{comment.user.username}</span>
               </p>
-              <div className="commenttext">
+              <div className="commenttext-label">
                 Comment:
                 <br />
-                <p>{comment.text}</p>
               </div>
-              <LikeDislike commentId={comment.id} />
+              <div className="commenttext-container">
+                <div className="commenttext">
+                  <p>{comment.text}</p>
+                </div>
+                <LikeDislike commentId={comment.id} />
+              </div>
             </div>
           );
         })}

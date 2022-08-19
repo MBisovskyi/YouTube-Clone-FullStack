@@ -18,7 +18,11 @@ form {
   margin-bottom: 1rem;
 }
 
-.eachcomment span{
+.eachcomment span {
   font-weight: 600;
   font-size: 20px;
+}
+
+.commentform button {
+  padding: 0.4rem;
 }
