@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./CommentForm.css";
@@ -20,13 +20,16 @@ const CommentForm = (props) => {
         Authorization: "Bearer " + token,
       },
     });
+    props.setTriger(true);
     setText("");
   }
 
   return (
     <form className="commentform" onSubmit={handleSubmit}>
       <div>
-        <p className="username">Username: <span>{user.username}</span></p>
+        <p className="username">
+          Username: <span>{user.username}</span>
+        </p>
       </div>
       <div>
         <label>

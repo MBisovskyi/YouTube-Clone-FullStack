@@ -11,34 +11,46 @@ const LikeDislike = (props) => {
   }, []);
 
   async function getLikesDislikes() {
-    let likes = await axios.get(
-      `http://127.0.0.1:8000/api/comments/${props.commentId}/add_like/`
+    let response = await axios.get(
+      `http://127.0.0.1:8000/api/comments/likes_dislikes/${props.commentId}/`
     );
-    console.log(likes);
-    setLikes(likes);
+    setLikes(response.data.likes);
+    setDislikes(response.data.dislikes);
+    console.log(response.data.likes, response.data.dislikes);
+  }
 
-    let dislikes = await axios.get(
-      `http://127.0.0.1:8000/api/comments/${props.commentId}/add_dislike/`
+  async function addLike() {
+    let likes = await axios.patch(
+      `http://127.0.0.1:8000/api/comments/add_like/${props.commentId}/`
     );
-    console.log(dislikes);
-    setDislikes(dislikes);
+    console.log(likes.data);
+    setLikes(likes.data);
+    getLikesDislikes();
+  }
+
+  async function addDislike() {
+    let dislikes = await axios.patch(
+      `http://127.0.0.1:8000/api/comments/add_dislike/${props.commentId}/`
+    );
+    console.log(dislikes.data);
+    setDislikes(dislikes.data);
+    getLikesDislikes();
   }
 
   return (
     <div>
       <div className="like-dislike-container">
-        <button onClick={getLikesDislikes}>
+        <button onClick={addLike}>
           <img src={require("../LikeDislike/assets/thumb-up.png")} />
-          <span>{likes}</span>
+          {likes}
         </button>
-        <button onClick={getLikesDislikes}>
+        <button onClick={addDislike}>
           <img src={require("../LikeDislike/assets/thumb-down.png")} />
-          <span>{dislikes}</span>
+          {dislikes}
         </button>
       </div>
       <div></div>
     </div>
   );
 };
-
 export default LikeDislike;

@@ -10,13 +10,14 @@ const CommentList = (props) => {
 
   useEffect(() => {
     displayComment();
-  });
+  }, [props.passTriger === true]);
 
   async function displayComment() {
     let response = await axios.get(
       `http://127.0.0.1:8000/api/comments/all/${videoId}/`
     );
     setComments(response.data);
+    props.setTriger(false);
   }
 
   return (

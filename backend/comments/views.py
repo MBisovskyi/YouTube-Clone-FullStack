@@ -41,6 +41,7 @@ def comment_by_id(request, comment_id):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['PATCH'])
+@permission_classes([AllowAny])
 def add_like(request, comment_id):
     comment = get_object_or_404(Comment, id = comment_id)
     if request.method == 'PATCH':
@@ -51,6 +52,7 @@ def add_like(request, comment_id):
         return Response(comment.likes, status = status.HTTP_202_ACCEPTED)
 
 @api_view(['PATCH'])
+@permission_classes([AllowAny])
 def add_dislike(request, comment_id):
     comment = get_object_or_404(Comment, id = comment_id)
     if request.method == 'PATCH':
@@ -59,3 +61,11 @@ def add_dislike(request, comment_id):
         serializer.is_valid(raise_exception = True)
         serializer.save()
         return Response(comment.dislikes, status = status.HTTP_202_ACCEPTED)
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def comment_likes_dislikes(request, comment_id):
+    if request.method == 'GET':
+        comment = Comment.objects.get(pk = comment_id)
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
